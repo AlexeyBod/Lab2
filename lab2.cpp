@@ -76,15 +76,22 @@ void addBook(Books *currentPointer,int currentNumberBook)             //Доба
   }          
 void addBook(Books *currentPointer,int tmpSumAllBooks,int f)          //Изменение поля flag объекта класса Book
   {
-      int tmp=0;
+      int tmp=0,tmp2=0;
       cout<<"Введите ID книги статус которой хотите изменить: "<<endl;
       cin>>tmp;
       for(int j=0;j<tmpSumAllBooks;j++)
       {
        if(currentPointer->ID==tmp)
           {
-          cout<<"Укажите наличие книги в билиотеке 1- в наличие, 0 - отсуствует: "<<endl;
-          cin>>currentPointer->flag;
+          cout<<"Введите 1 чтобы изменить статус книги на обратный, или 0 чтобы ничего не менять"<<endl;
+          cin>>tmp2;
+            if(tmp2==1)
+            {
+              if(currentPointer->flag==0)
+              currentPointer->flag++;
+              else
+              currentPointer->flag--;  
+            }
           }
         currentPointer++;  
       }
